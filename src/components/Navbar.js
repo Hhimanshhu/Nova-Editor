@@ -1,7 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types"; 
 import './Navbar.css';
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+import logo from "../assets/logo.png";
 
 export default function Navbar(props) {
   return (
@@ -26,59 +27,37 @@ export default function Navbar(props) {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-            <a className="nav-link active" aria-current="page" href="/">
+            {/* <a className="nav-link active" aria-current="page" href="/">
                 Home
-              </a>
-              {/* <Link className="nav-link active" aria-current="page" to="/">
+              </a> */}
+              <Link className="nav-link" aria-current="page" to="/">
                 Home
-              </Link> */}
+              </Link>
             </li>
             <li className="nav-item">
               
-            <a className="nav-link" href="/">
+            {/* <a className="nav-link" href="/">
                 {props.abouttext}
-              </a>
-{/*               
+              </a> */}
+              
               <Link className="nav-link" to="/about">
                 {props.abouttext}
-              </Link> */}
+              </Link>
             </li>
-            <li className="nav-item dropdown">
-              <a
-                className="nav-link dropdown-toggle"
-                href="/"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                {props.dropdown}
-              </a>
-              <ul className="dropdown-menu">
-                <li>
-                  <a className="dropdown-item" href="/">
-                   Action
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="/">
-                    Another action
-                  </a>
-                </li>
-                <li>
-                  <hr className="dropdown-divider" />
-                </li>
-                <li>
-                  <a className="dropdown-item" href="/">
-                    Something else here
-                  </a>
-                </li>
-              </ul>
-            </li>
+
+
           </ul>
           
-
+          <div className = "d-flex">
+              <div className="bg-primary rounded mx-2" onClick={() =>{props.togglemode('primary')}} style={{height:'30px',width:'30px', cursor: 'pointer'}}></div>
+              <div className="bg-warning rounded mx-2" onClick={() =>{props.togglemode('warning')}} style={{height:'30px',width:'30px', cursor: 'pointer'}}></div>
+              <div className="bg-info rounded mx-2" onClick={() =>{props.togglemode('info')}} style={{height:'30px',width:'30px', cursor: 'pointer'}}></div>
+              <div className="bg-success rounded mx-2" onClick={() =>{props.togglemode('success')}} style={{height:'30px',width:'30px', cursor: 'pointer'}}></div>
+          </div>
+          
+          
           <div className={`form-check form-switch text-${props.mode === 'light'? 'red':'light'}`}>
-            <input className="form-check-input" onClick={props.togglemode} type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
+            <input className="form-check-input" onClick={() =>{props.togglemode('dark')}} type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
             <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Enable Dark Mode</label>
           </div>
 
@@ -87,27 +66,18 @@ export default function Navbar(props) {
             <input className="form-check-input" onClick={props.togglemode1} type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
             <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Enable Red Mode</label>
           </div>
-          
-          
-          
-          <form className="d-flex" role="search">
-            <input
-              className="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button className="btn btn-primary" type="submit">
-              Search
-            </button>
-          </form>
+
+          <div className="navbar-logo-container">
+            <img src={logo} alt="Logo" className="navbar-logo" />
+          </div>
+
+
+
         </div>
       </div>
     </nav>
   );
 }
-
-// Navbar.PropTypespt = { titlex: PropTypes.string.isRequired, abouttext: PropTypes.string };
 Navbar.propTypes = { 
   titlex: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired, 
   abouttext: PropTypes.string 

@@ -33,7 +33,7 @@
     transform: rotate(0deg);
   }
   to {
-    transform: rotate(360deg);
+    transform: rotate(360deg);  
   }
 }
 body.light {
@@ -48,5 +48,28 @@ body.dark {
 
 body.red{
   background-color: red;
+  color: white;
+}
+
+body.primary {
+  background-color: #0d6efd;
+  color: white;
+}
+
+/* Danger (Red) */
+.warning {
+  background-color: yellow;
+  color: white;
+}
+
+/* Info (Cyan) */
+body.info {
+  background-color: #0dcaf0;
+  color: black;
+}
+
+/* Tertiary (Greyish) */
+.success {
+  background-color: green;
   color: white;
 }

@@ -2,9 +2,13 @@
     padding-top: 10px;
 
 }
-.btndark{
-    background-color: blue;
-    color: white;
-    border-radius: 10px;
-} 
+.accordion-button::after {
+    filter: invert(0); /* Default for light mode (black arrow) */
+  }
+  
+  /* When dark mode is active */
+  .dark .accordion-button::after {
+    filter: invert(1); /* White arrow in dark mode */
+  }
+  
   
